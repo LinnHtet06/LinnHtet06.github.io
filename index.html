@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LIN HTET AUNG — Data Analyst</title>
+<title>LIN HTET AUNG | The Analyst Portfolio</title>
+<meta property="og:title" content="LIN HTET AUNG | The Analyst Portfolio">
+<meta property="og:description" content="Data Analyst based in London. SQL, Python and dashboards that turn data into decisions.">
+<meta property="og:image" content="https://linnhtet06.github.io/portrait.png">
+<meta property="og:url" content="https://linnhtet06.github.io/">
 <meta name="description" content="Lin Htet Aung — Data Analyst based in London. SQL, Python and dashboards that turn data into decisions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +17,17 @@
    Colors — navy & blue
    ========================================================= */
 :root{
-  --bg:#04070f;
-  --bg-2:#081022;
-  --line:rgba(150,180,235,.14);
-  --text:#e9eef8;
-  --muted:#8b97ad;
-  --accent:#8fb4f5;
+  --bg:#08122b;
+  --bg-2:#0d1a3a;
+  --line:rgba(243,227,195,.14);
+  --text:#f5ecdc;
+  --muted:#b3aa9b;
+  --accent:#ff8a6b;
   --navy-1:#0b1733;
   --navy-2:#13254d;
-  --blue-1:#2c4f86;
-  --blue-2:#3f6aa8;
-  --blue-3:#5b8ad6;
+  --blue-1:#e8674a;
+  --blue-2:#ff8a6b;
+  --blue-3:#e8674a;
   --serif:"Instrument Serif", Georgia, serif;
   --sans:"Inter", system-ui, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, monospace;
@@ -48,15 +52,15 @@ main,header,footer{position:relative;z-index:1}
 
 /* ---------- NAV ---------- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 0;transition:background .3s,padding .3s}
-.nav.scrolled{background:rgba(4,7,15,.72);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav.scrolled{background:rgba(8,18,43,.72);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.04em;text-transform:uppercase}
 .logo span{color:var(--accent)}
 .status{display:flex;gap:28px;font-size:12px;color:var(--muted)}
 .status span{display:flex;align-items:center;gap:8px}
 .status b{color:var(--text);font-weight:500}
-.dot{width:7px;height:7px;border-radius:50%;background:#7dd3a8;animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(125,211,168,.6)}70%{box-shadow:0 0 0 8px rgba(125,211,168,0)}100%{box-shadow:0 0 0 0 rgba(125,211,168,0)}}
+.dot{width:7px;height:7px;border-radius:50%;background:#f3e3c3;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(243,227,195,.6)}70%{box-shadow:0 0 0 8px rgba(243,227,195,0)}100%{box-shadow:0 0 0 0 rgba(243,227,195,0)}}
 .links{display:flex;flex-direction:column;align-items:flex-end;font-size:13px;line-height:1.5}
 .links a{position:relative}
 .links a::after{content:"";position:absolute;left:0;bottom:1px;height:1px;width:0;background:var(--text);transition:width .3s}
@@ -68,29 +72,38 @@ main,header,footer{position:relative;z-index:1}
 .ring-stage{position:absolute;top:16%;left:50%;width:100%;height:260px;transform:translateX(-50%);perspective:1400px;z-index:1;pointer-events:none}
 .ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;animation:spin 48s linear infinite}
 @keyframes spin{from{transform:rotateX(-6deg) rotateY(0)}to{transform:rotateX(-6deg) rotateY(-360deg)}}
-.ring .card{position:absolute;width:220px;height:136px;margin:-68px 0 0 -110px;border-radius:10px;overflow:hidden;
-  border:1px solid rgba(255,255,255,.12);backface-visibility:hidden;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.card .ui{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;justify-content:space-between}
-.card .ui i{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.35)}
-.card .ui .t{font-family:var(--serif);font-size:22px;line-height:1;color:#fff}
-.card .ui .row{display:flex;gap:6px;align-items:flex-end}
-.card .bars{display:flex;align-items:flex-end;gap:4px;height:34px}
-.card .bars u{display:block;width:8px;border-radius:2px 2px 0 0;background:rgba(255,255,255,.45)}
+.ring .card{position:absolute;width:240px;height:150px;margin:-75px 0 0 -120px;border-radius:14px;overflow:hidden;
+  background:linear-gradient(160deg,#172b55 0%,#0b1530 60%,#070d1f 100%);
+  border:1px solid rgba(255,138,107,.24);backface-visibility:hidden;
+  box-shadow:0 24px 60px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08)}
+.ring .card::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 88% -10%,rgba(232,103,74,.45),transparent 55%),
+             linear-gradient(rgba(255,138,107,.06) 1px,transparent 1px) 0 0/100% 18px}
+.card .ui{position:absolute;inset:0;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.card .hd{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(243,227,195,.6)}
+.card .hd b{display:flex;align-items:center;gap:5px;font-weight:500}
+.card .hd b::before{content:"";width:5px;height:5px;border-radius:50%;background:#f3e3c3;box-shadow:0 0 6px #f3e3c3}
+.card .t{font-family:var(--serif);font-size:21px;line-height:1;color:#fff;display:flex;align-items:baseline;gap:8px}
+.card .t small{font-family:var(--mono);font-size:9px;color:#f3e3c3;letter-spacing:.04em}
+.card .viz{flex:1;min-height:0;display:flex;align-items:flex-end;margin-top:2px}
+.card .viz svg{width:100%;height:100%;overflow:visible}
+.card pre{font-family:var(--mono);font-size:9.5px;line-height:1.55;color:#f3e3c3;white-space:pre;margin:0;align-self:center}
+.card pre .k{color:#ff8a6b}.card pre .s{color:#f3e3c3}.card pre .c{color:rgba(243,227,195,.4)}
 
 .portrait{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,90vw);height:82%;z-index:2;display:flex;align-items:flex-end;justify-content:center}
 .portrait img{width:78%;height:92%;object-fit:cover;object-position:center 22%;border-radius:999px 999px 0 0;
-  border:1px solid rgba(143,180,245,.25);box-shadow:0 40px 120px -20px rgba(63,106,168,.5);
+  border:1px solid rgba(255,138,107,.25);box-shadow:0 40px 120px -20px rgba(232,103,74,.5);
   -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
 .ph{width:78%;height:92%;border-radius:999px 999px 0 0;position:relative;overflow:hidden;
   background:radial-gradient(circle at 50% 28%,#6d8fc9 0 17%,transparent 17.5%),
-             radial-gradient(ellipse at 50% 100%,#3f6aa8 0 46%,transparent 46.5%),
+             radial-gradient(ellipse at 50% 100%,#c95a43 0 46%,transparent 46.5%),
              linear-gradient(180deg,#121a2b,#0b1220)}
 .ph span{position:absolute;bottom:18px;left:0;right:0;text-align:center}
 
 .hero-content{position:relative;z-index:4;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:32px}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,8vw,112px);line-height:.92;letter-spacing:-.02em;margin:14px 0 28px}
 .hero h1 em{color:var(--accent)}
-.btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#0a0e17;padding:6px 20px 6px 6px;border-radius:999px;font-size:14px;font-weight:500;transition:gap .3s}
+.btn{display:inline-flex;align-items:center;gap:12px;background:#f5ecdc;color:#0a0e17;padding:6px 20px 6px 6px;border-radius:999px;font-size:14px;font-weight:500;transition:gap .3s}
 .btn .ic{width:34px;height:34px;border-radius:50%;background:#0b1733;color:#fff;display:grid;place-items:center;transition:transform .3s}
 .btn:hover{gap:16px}.btn:hover .ic{transform:rotate(-45deg)}
 .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);padding:6px 20px}
@@ -99,7 +112,7 @@ main,header,footer{position:relative;z-index:1}
 .quote p{font-family:var(--serif);font-size:20px;line-height:1.25;color:var(--muted)}
 .quote p b{color:var(--text);font-weight:400}
 .sig{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;letter-spacing:.05em;text-transform:uppercase;margin-top:18px;display:block;
-  background:linear-gradient(90deg,#ffffff 0%,var(--accent) 60%,#5b8ad6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  background:linear-gradient(90deg,#ffffff 0%,var(--accent) 60%,#e8674a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .eyebrow{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 .hero .eyebrow b{color:var(--text);font-weight:800}
 
@@ -114,7 +127,7 @@ main,header,footer{position:relative;z-index:1}
 section{padding:140px 0}
 .why{position:relative;overflow:hidden}
 .why .ghost{position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:clamp(160px,28vw,400px);line-height:.8;
-  color:transparent;-webkit-text-stroke:1px rgba(143,180,245,.12);white-space:nowrap;pointer-events:none;user-select:none}
+  color:transparent;-webkit-text-stroke:1px rgba(255,138,107,.12);white-space:nowrap;pointer-events:none;user-select:none}
 .why-grid{position:relative;display:grid;grid-template-columns:1fr 360px 1fr;align-items:center;gap:40px}
 .stats{display:flex;flex-direction:column;gap:120px}
 .stat{position:relative}
@@ -127,11 +140,11 @@ section{padding:140px 0}
 .stats.right .stat::after{left:-80px;width:100px;transform-origin:left;background:linear-gradient(90deg,var(--accent),transparent)}
 .stat.in::after{transform:scaleX(1)}
 .arch{height:540px;border-radius:999px 999px 0 0;background:linear-gradient(180deg,var(--blue-1),var(--blue-2));padding:140px 34px 40px;display:flex;flex-direction:column;
-  box-shadow:0 40px 120px -20px rgba(63,106,168,.45), inset 0 1px 0 rgba(255,255,255,.2)}
+  box-shadow:0 40px 120px -20px rgba(232,103,74,.45), inset 0 1px 0 rgba(255,255,255,.2)}
 .arch .mono{color:rgba(255,255,255,.7)}
 .arch h2{font-family:var(--serif);font-weight:400;font-size:42px;line-height:1.02;margin:14px 0 22px}
 .arch p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.85)}
-.arch .sig{font-size:24px;margin-top:auto;background:linear-gradient(90deg,#fff,#cfe0ff);-webkit-background-clip:text;background-clip:text}
+.arch .sig{font-size:24px;margin-top:auto;background:linear-gradient(90deg,#fff,#f3e3c3);-webkit-background-clip:text;background-clip:text}
 
 /* ---------- SECTION HEAD ---------- */
 .head{display:flex;align-items:center;gap:16px;margin-bottom:56px}
@@ -167,7 +180,7 @@ section{padding:140px 0}
 .sticky{position:sticky;top:110px;aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
 .sticky .panel{position:absolute;inset:0;opacity:0;transition:opacity .7s;display:flex;align-items:center;justify-content:center;padding:32px}
 .sticky .panel.on{opacity:1}
-.sticky .panel .big{font-family:var(--serif);font-size:clamp(48px,6vw,92px);line-height:.9;text-transform:uppercase;text-align:center;color:#e6eeff}
+.sticky .panel .big{font-family:var(--serif);font-size:clamp(48px,6vw,92px);line-height:.9;text-transform:uppercase;text-align:center;color:#f5ecdc}
 .steps .step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--line);padding:40px 0;opacity:.35;transition:opacity .5s}
 .steps .step.on{opacity:1}
 .step .num{font-family:var(--serif);font-size:88px;line-height:1;color:var(--accent)}
@@ -178,8 +191,8 @@ section{padding:140px 0}
 
 /* ---------- TESTIMONIALS ---------- */
 .tests{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.t-card{border:1px solid var(--line);border-radius:16px;padding:32px;background:linear-gradient(180deg,rgba(143,180,245,.05),transparent);display:flex;flex-direction:column;gap:28px;transition:border-color .3s,transform .3s}
-.t-card:hover{border-color:rgba(143,180,245,.4);transform:translateY(-4px)}
+.t-card{border:1px solid var(--line);border-radius:16px;padding:32px;background:linear-gradient(180deg,rgba(255,138,107,.05),transparent);display:flex;flex-direction:column;gap:28px;transition:border-color .3s,transform .3s}
+.t-card:hover{border-color:rgba(255,138,107,.4);transform:translateY(-4px)}
 .t-card p{font-family:var(--serif);font-size:22px;line-height:1.3}
 .who{display:flex;align-items:center;gap:12px;margin-top:auto}
 .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;color:#06102a}
@@ -196,6 +209,48 @@ footer{border-top:1px solid var(--line);padding:28px 0}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer .soc{display:flex;gap:22px}
 footer a:hover{color:var(--text)}
+
+/* ---------- 3D / FUTURISTIC LAYER ---------- */
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.75}
+#prog{position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;transform-origin:left;transform:scaleX(0);
+  background:linear-gradient(90deg,#e8674a,#ff8a6b,#f3e3c3);box-shadow:0 0 12px #ff8a6b}
+#glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:2;
+  background:radial-gradient(circle,rgba(232,103,74,.16),transparent 60%);mix-blend-mode:screen;transition:opacity .4s;opacity:0}
+.floor{position:absolute;left:-50%;right:-50%;bottom:0;height:46%;z-index:0;pointer-events:none;
+  transform:perspective(520px) rotateX(72deg);transform-origin:bottom;
+  background-image:linear-gradient(rgba(255,138,107,.32) 1px,transparent 1px),linear-gradient(90deg,rgba(255,138,107,.32) 1px,transparent 1px);
+  background-size:64px 64px;animation:floor 3s linear infinite;
+  -webkit-mask-image:linear-gradient(transparent,#000 70%);mask-image:linear-gradient(transparent,#000 70%)}
+@keyframes floor{to{background-position:0 64px}}
+.orbit{position:absolute;left:50%;top:58%;border-radius:50%;pointer-events:none;border:1px solid rgba(255,138,107,.45);
+  box-shadow:0 0 18px rgba(232,103,74,.35), inset 0 0 18px rgba(232,103,74,.25)}
+.orbit.o1{width:125%;aspect-ratio:1;transform:translate(-50%,-50%) rotateX(76deg);animation:orb 9s linear infinite}
+.orbit.o2{width:105%;aspect-ratio:1;transform:translate(-50%,-50%) rotateX(76deg) rotateY(18deg);border-color:rgba(243,227,195,.35);animation:orb2 13s linear infinite}
+.orbit::after{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px #ff8a6b,0 0 24px #ff8a6b}
+@keyframes orb{to{transform:translate(-50%,-50%) rotateX(76deg) rotateZ(360deg)}}
+@keyframes orb2{to{transform:translate(-50%,-50%) rotateX(76deg) rotateY(18deg) rotateZ(-360deg)}}
+.portrait img{position:relative;z-index:1}
+
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.holo{position:relative}
+.holo::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:3;
+  background:conic-gradient(from var(--ang),transparent 0 55%,#e8674a 70%,#ff8a6b 80%,#f3e3c3 88%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  animation:holo 6s linear infinite}
+@keyframes holo{to{--ang:360deg}}
+.tilt{transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tilt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .3s;
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,236,215,.22),transparent 45%)}
+.tilt:hover::after{opacity:1}
+.shine{background:linear-gradient(90deg,#ff8a6b,#ffffff,#e8674a,#f3e3c3,#ff8a6b);background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent!important;animation:shine 8s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.hero h1{text-shadow:0 0 40px rgba(232,103,74,.35)}
+.step .num{text-shadow:0 0 30px rgba(255,138,107,.45)}
+.stat .n{text-shadow:0 0 28px rgba(255,138,107,.4)}
+.head .mono{color:var(--accent)}
+.head::after{background:linear-gradient(90deg,rgba(255,138,107,.5),transparent)}
+@media (hover:none){#glow{display:none}}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
@@ -221,19 +276,25 @@ footer a:hover{color:var(--text)}
   section{padding:96px 0}
 }
 @media (max-width:560px){
-  .ring .card{width:150px;height:94px;margin:-47px 0 0 -75px}
-  .card .bars{height:20px}
+  .ring .card{width:170px;height:106px;margin:-53px 0 0 -85px;border-radius:11px}
+  .card .ui{padding:9px 10px}
+  .card .t{font-size:15px}
+  .card .hd{font-size:7px}
+  .card pre{font-size:7px}
   .hero{padding-bottom:40px}
   .step .num{font-size:64px}
   .art .win{display:none}
 }
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .reveal{opacity:1;transform:none}
+  .reveal{transition-duration:.4s}.reveal:not(.in){transform:none}
+  .floor{animation-duration:8s}.track{animation-duration:80s}
 }
 </style>
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div id="prog" aria-hidden="true"></div>
+<div id="glow" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
@@ -255,9 +316,11 @@ footer a:hover{color:var(--text)}
 <main id="top">
 <!-- ================= HERO ================= -->
 <section class="hero">
+  <div class="floor" aria-hidden="true"></div>
   <div class="ring-stage"><div class="ring" id="ring"></div></div>
 
   <div class="portrait">
+    <i class="orbit o1" aria-hidden="true"></i><i class="orbit o2" aria-hidden="true"></i>
     <!-- Photo: portrait.png next to this file -->
     <img src="portrait.png" alt="Lin Htet Aung" onerror="this.replaceWith(document.getElementById('ph').content.cloneNode(true))">
   </div>
@@ -319,10 +382,10 @@ footer a:hover{color:var(--text)}
     <div class="work-grid">
       <!-- Project 1 -->
       <a class="proj reveal" href="https://github.com/LinnHtet06" target="_blank" rel="noopener">
-        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 20% 20%,#3f6aa8,transparent 60%),linear-gradient(135deg,#0b1733,#1d2f57)">
+        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 20% 20%,#c95a43,transparent 60%),linear-gradient(135deg,#0b1733,#1d2f57)">
           <div class="big"><small>Olist · Brazil</small>E-commerce<br>Analysis</div>
           <div class="win"><div class="top"><i></i><i></i><i></i></div>
-            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><g fill="rgba(255,255,255,.55)"><rect x="8" y="60" width="18" height="40" rx="2"/><rect x="36" y="44" width="18" height="56" rx="2"/><rect x="64" y="52" width="18" height="48" rx="2"/><rect x="92" y="30" width="18" height="70" rx="2"/><rect x="120" y="38" width="18" height="62" rx="2"/><rect x="148" y="18" width="18" height="82" rx="2"/><rect x="176" y="8" width="18" height="92" rx="2" fill="#8fb4f5"/></g></svg>
+            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><g fill="rgba(255,255,255,.55)"><rect x="8" y="60" width="18" height="40" rx="2"/><rect x="36" y="44" width="18" height="56" rx="2"/><rect x="64" y="52" width="18" height="48" rx="2"/><rect x="92" y="30" width="18" height="70" rx="2"/><rect x="120" y="38" width="18" height="62" rx="2"/><rect x="148" y="18" width="18" height="82" rx="2"/><rect x="176" y="8" width="18" height="92" rx="2" fill="#ff8a6b"/></g></svg>
           </div></div><span class="view">View on GitHub →</span></div>
         <div class="meta"><h3>Brazilian E-commerce Analysis</h3><span class="mono">E-commerce · Analytics</span></div>
         <p class="desc">Explored ~100K orders from a Brazilian online marketplace to uncover sales trends, top product categories, delivery performance and what drives customer review scores.</p>
@@ -331,10 +394,10 @@ footer a:hover{color:var(--text)}
 
       <!-- Project 2 -->
       <a class="proj reveal d2" href="https://github.com/LinnHtet06" target="_blank" rel="noopener">
-        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 80% 30%,#5b8ad6,transparent 55%),linear-gradient(135deg,#081022,#13254d)">
+        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 80% 30%,#e8674a,transparent 55%),linear-gradient(135deg,#081022,#13254d)">
           <div class="big"><small>Fintech</small>Credit Risk<br>Analysis</div>
           <div class="win"><div class="top"><i></i><i></i><i></i></div>
-            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><polyline fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-dasharray="4 4" points="0,100 200,0"/><path d="M0,100 C20,40 60,12 200,4" fill="none" stroke="#8fb4f5" stroke-width="3"/><path d="M0,100 C20,40 60,12 200,4 L200,100 Z" fill="rgba(143,180,245,.15)"/></svg>
+            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><polyline fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-dasharray="4 4" points="0,100 200,0"/><path d="M0,100 C20,40 60,12 200,4" fill="none" stroke="#ff8a6b" stroke-width="3"/><path d="M0,100 C20,40 60,12 200,4 L200,100 Z" fill="rgba(255,138,107,.15)"/></svg>
           </div></div><span class="view">View on GitHub →</span></div>
         <div class="meta"><h3>Fintech Credit Risk Analysis</h3><span class="mono">Fintech · Risk</span></div>
         <p class="desc">Analysed borrower data to identify the factors behind loan defaults and built a model to score credit risk, helping lenders approve good customers and reduce bad debt.</p>
@@ -343,10 +406,10 @@ footer a:hover{color:var(--text)}
 
       <!-- Project 3 -->
       <a class="proj wide reveal" href="https://github.com/LinnHtet06" target="_blank" rel="noopener">
-        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 70% 60%,#3f6aa8,transparent 55%),linear-gradient(120deg,#060c1c,#13254d 60%,#081022)">
+        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 70% 60%,#c95a43,transparent 55%),linear-gradient(120deg,#060c1c,#13254d 60%,#081022)">
           <div class="big"><small>Full-stack · CRUD</small>Perfume<br>Store</div>
           <div class="win"><div class="top"><i></i><i></i><i></i></div>
-            <svg viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet"><g fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)"><rect x="5" y="5" width="85" height="90" rx="6"/><rect x="107" y="5" width="85" height="90" rx="6"/><rect x="209" y="5" width="85" height="90" rx="6"/></g><g fill="rgba(143,180,245,.85)"><rect x="38" y="22" width="20" height="10" rx="2"/><rect x="33" y="32" width="30" height="36" rx="6"/><rect x="140" y="22" width="20" height="10" rx="2"/><rect x="132" y="32" width="36" height="36" rx="10"/><rect x="242" y="18" width="20" height="12" rx="2"/><rect x="236" y="30" width="32" height="38" rx="4"/></g><g fill="rgba(255,255,255,.4)"><rect x="20" y="76" width="55" height="6" rx="3"/><rect x="122" y="76" width="55" height="6" rx="3"/><rect x="224" y="76" width="55" height="6" rx="3"/></g></svg>
+            <svg viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet"><g fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)"><rect x="5" y="5" width="85" height="90" rx="6"/><rect x="107" y="5" width="85" height="90" rx="6"/><rect x="209" y="5" width="85" height="90" rx="6"/></g><g fill="rgba(255,138,107,.85)"><rect x="38" y="22" width="20" height="10" rx="2"/><rect x="33" y="32" width="30" height="36" rx="6"/><rect x="140" y="22" width="20" height="10" rx="2"/><rect x="132" y="32" width="36" height="36" rx="10"/><rect x="242" y="18" width="20" height="12" rx="2"/><rect x="236" y="30" width="32" height="38" rx="4"/></g><g fill="rgba(255,255,255,.4)"><rect x="20" y="76" width="55" height="6" rx="3"/><rect x="122" y="76" width="55" height="6" rx="3"/><rect x="224" y="76" width="55" height="6" rx="3"/></g></svg>
           </div></div><span class="view">View on GitHub →</span></div>
         <div class="meta"><h3>Perfume E-commerce Website</h3><span class="mono">Web App · CRUD</span></div>
         <p class="desc">A working online perfume shop where customers can browse and buy fragrances, with full create, read, update and delete (CRUD) management for products and orders behind the scenes.</p>
@@ -363,9 +426,9 @@ footer a:hover{color:var(--text)}
     <div class="process">
       <div class="sticky" id="stickyArt">
         <div class="panel on" style="background:radial-gradient(circle at 50% 30%,#1d2f57,#060c1c)"><div class="big">Ask<br>better<br>questions</div></div>
-        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#2c4f86,#081022)"><div class="big">Clean<br>the<br>mess</div></div>
+        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#a8452f,#081022)"><div class="big">Clean<br>the<br>mess</div></div>
         <div class="panel" style="background:radial-gradient(circle at 50% 30%,#13254d,#04070f)"><div class="big">Find<br>the<br>signal</div></div>
-        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#3f6aa8,#0b1733)"><div class="big">Tell<br>the<br>story</div></div>
+        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#c95a43,#0b1733)"><div class="big">Tell<br>the<br>story</div></div>
       </div>
       <div class="steps">
         <div class="step on" data-i="0"><div class="num">01.</div><h3>Understanding the business question</h3><p>Every analysis starts with the right question. I work with you to understand your goals, define the KPIs that matter and agree on what a useful answer looks like.</p><ul><li>Requirements</li><li>KPI definition</li><li>Stakeholder chat</li></ul></div>
@@ -383,9 +446,9 @@ footer a:hover{color:var(--text)}
   <div class="wrap">
     <div class="head reveal"><span class="mono">Kind words</span></div>
     <div class="tests">
-      <div class="t-card reveal"><p>“Lin has a real talent for taking a huge, messy dataset and coming back with three clear insights everyone understands.”</p><div class="who"><div class="av" style="background:#8fb4f5">PM</div><div>Project Mentor<small>Data Analytics Course</small></div></div></div>
-      <div class="t-card reveal d1"><p>“Reliable, curious and detail-oriented. The credit risk work was thorough and explained in a way non-technical people could follow.”</p><div class="who"><div class="av" style="background:#5b8ad6">TL</div><div>Team Lead<small>Group Project</small></div></div></div>
-      <div class="t-card reveal d2"><p>“Communicates clearly, meets deadlines and always double-checks the numbers. Great to work with.”</p><div class="who"><div class="av" style="background:#b9cdf5">CL</div><div>Client<small>Freelance Project</small></div></div></div>
+      <div class="t-card reveal"><p>“Lin has a real talent for taking a huge, messy dataset and coming back with three clear insights everyone understands.”</p><div class="who"><div class="av" style="background:#ff8a6b">PM</div><div>Project Mentor<small>Data Analytics Course</small></div></div></div>
+      <div class="t-card reveal d1"><p>“Reliable, curious and detail-oriented. The credit risk work was thorough and explained in a way non-technical people could follow.”</p><div class="who"><div class="av" style="background:#e8674a">TL</div><div>Team Lead<small>Group Project</small></div></div></div>
+      <div class="t-card reveal d2"><p>“Communicates clearly, meets deadlines and always double-checks the numbers. Great to work with.”</p><div class="who"><div class="av" style="background:#f3e3c3">CL</div><div>Client<small>Freelance Project</small></div></div></div>
     </div>
   </div>
 </section>
@@ -414,24 +477,81 @@ footer a:hover{color:var(--text)}
 
 <script>
 /* ---------- 3D ring cards ---------- */
+/* Each card: [label, title, small note, visual type] */
 const cards = [
-  ["E-commerce","#0b1733","#2c4f86"],["Credit Risk","#13254d","#5b8ad6"],["Perfume Store","#081022","#3f6aa8"],
-  ["SQL","#1d2f57","#4a78c0"],["Python","#0b1733","#3f6aa8"],["Power BI","#13254d","#6f9ccf"],
-  ["Dashboards","#081022","#2c4f86"],["Forecasts","#1d2f57","#5b8ad6"],["KPIs","#0b1733","#4a78c0"],
-  ["Cohorts","#13254d","#3f6aa8"],["Insights","#081022","#6f9ccf"],["Pandas","#1d2f57","#2c4f86"]
+  ["Olist · Brazil","E-commerce","100K orders","kpi"],
+  ["Fintech","Credit Risk","risk score","gauge"],
+  ["Web · CRUD","Perfume Store","","shop"],
+  ["Query","SQL","","sql"],
+  ["Script","Python","","py"],
+  ["Report","Power BI","","bars"],
+  ["Overview","Dashboards","","donut"],
+  ["Time series","Forecasts","","forecast"],
+  ["DataFrame","Pandas","","heat"],
+  ["Retention","Cohorts","","cohort"],
+  ["Correlation","Insights","","scatter"],
+  ["Metrics","KPIs","+18%","spark"]
 ];
+const A='#ff8a6b', B='#e8674a', G='#f3e3c3', W='rgba(255,255,255,.14)';
+function rng(seed){ return ()=>{ seed=(seed*16807)%2147483647; return seed/2147483647; }; }
+function pathFrom(pts){ return pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' '); }
+const viz = {
+  kpi(i){ const r=rng(i+3); const pts=Array.from({length:14},(_,k)=>[k*15.4, 50-k*2.4-r()*14]);
+    return `<svg viewBox="0 0 200 60" preserveAspectRatio="none"><defs><linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${A}" stop-opacity=".5"/><stop offset="1" stop-color="${A}" stop-opacity="0"/></linearGradient></defs>
+      <path d="${pathFrom(pts)} L200,60 L0,60 Z" fill="url(#g${i})"/><path d="${pathFrom(pts)}" fill="none" stroke="${A}" stroke-width="2" vector-effect="non-scaling-stroke"/>
+      <circle cx="${pts[13][0]}" cy="${pts[13][1]}" r="3" fill="#fff"/></svg>`; },
+  spark(i){ return viz.kpi(i+7); },
+  forecast(i){ const r=rng(i+11); const pts=Array.from({length:10},(_,k)=>[k*12, 42-k*1.8+Math.sin(k*1.3)*8-r()*5]);
+    const last=pts[9]; const fut=[last,[150,last[1]-8],[200,last[1]-16]];
+    return `<svg viewBox="0 0 200 60" preserveAspectRatio="none">
+      <path d="M${last[0]},${last[1]-6} L150,${last[1]-18} L200,${last[1]-30} L200,${last[1]-2} L150,${last[1]+2} L${last[0]},${last[1]+6} Z" fill="${B}" opacity=".22"/>
+      <path d="${pathFrom(pts)}" fill="none" stroke="${A}" stroke-width="2" vector-effect="non-scaling-stroke"/>
+      <path d="${pathFrom(fut)}" fill="none" stroke="${G}" stroke-width="2" stroke-dasharray="4 3" vector-effect="non-scaling-stroke"/>
+      <line x1="${last[0]}" y1="0" x2="${last[0]}" y2="60" stroke="${W}" stroke-dasharray="2 3"/></svg>`; },
+  bars(i){ const r=rng(i+5); let s=''; for(let k=0;k<10;k++){ const h=14+r()*36+k*1.5; s+=`<rect x="${k*20+3}" y="${58-h}" width="13" height="${h}" rx="3" fill="${k===8?G:'url(#b'+i+')'}"/>`; }
+    return `<svg viewBox="0 0 200 60" preserveAspectRatio="none"><defs><linearGradient id="b${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${A}"/><stop offset="1" stop-color="${B}" stop-opacity=".25"/></linearGradient></defs>${s}<line x1="0" y1="59" x2="200" y2="59" stroke="${W}"/></svg>`; },
+  donut(i){ const C=2*Math.PI*20, seg=[[.46,A],[.28,B],[.16,G]]; let off=0, s='';
+    seg.forEach(([p,c])=>{ s+=`<circle cx="30" cy="30" r="20" fill="none" stroke="${c}" stroke-width="8" stroke-dasharray="${p*C-2} ${C}" stroke-dashoffset="${-off*C}" transform="rotate(-90 30 30)"/>`; off+=p; });
+    const leg=['Sales','Users','Returns'].map((t,k)=>`<rect x="78" y="${12+k*15}" width="7" height="7" rx="2" fill="${seg[k][1]}"/><text x="92" y="${19+k*15}" font-size="9" fill="rgba(243,227,195,.75)" font-family="JetBrains Mono">${t}</text><text x="190" y="${19+k*15}" font-size="9" fill="#fff" text-anchor="end" font-family="JetBrains Mono">${Math.round(seg[k][0]*100)}%</text>`).join('');
+    return `<svg viewBox="0 0 200 60"><circle cx="30" cy="30" r="20" fill="none" stroke="${W}" stroke-width="8"/>${s}${leg}</svg>`; },
+  gauge(){ const arc=(a0,a1,r)=>{const p=a=>[100+r*Math.cos(Math.PI*(1-a)), 56-r*Math.sin(Math.PI*(1-a))]; const [x0,y0]=p(a0),[x1,y1]=p(a1); return `M${x0},${y0} A${r},${r} 0 0 1 ${x1},${y1}`;};
+    const ang=Math.PI*(1-.28);
+    return `<svg viewBox="0 0 200 60"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="${G}"/><stop offset=".55" stop-color="${A}"/><stop offset="1" stop-color="#c9452c"/></linearGradient></defs>
+      <path d="${arc(0,1,46)}" fill="none" stroke="${W}" stroke-width="9" stroke-linecap="round"/>
+      <path d="${arc(0,1,46)}" fill="none" stroke="url(#gg)" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+      <line x1="100" y1="56" x2="${100+36*Math.cos(ang)}" y2="${56-36*Math.sin(ang)}" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="56" r="4" fill="#fff"/>
+      <text x="44" y="60" font-size="8" fill="rgba(243,227,195,.6)" font-family="JetBrains Mono" text-anchor="middle">LOW</text><text x="156" y="60" font-size="8" fill="rgba(243,227,195,.6)" font-family="JetBrains Mono" text-anchor="middle">HIGH</text></svg>`; },
+  heat(i){ const r=rng(i+21); let s=''; for(let y=0;y<4;y++) for(let x=0;x<12;x++){ s+=`<rect x="${x*16.6}" y="${y*15}" width="14" height="12.5" rx="2.5" fill="${A}" opacity="${(.1+r()*.85).toFixed(2)}"/>`; }
+    return `<svg viewBox="0 0 200 60" preserveAspectRatio="none">${s}</svg>`; },
+  cohort(){ let s=''; for(let y=0;y<4;y++) for(let x=0;x<10-y*2;x++){ s+=`<rect x="${x*20}" y="${y*15}" width="18" height="12.5" rx="2.5" fill="${y%2?B:A}" opacity="${Math.max(.12,1-x*.11-y*.05).toFixed(2)}"/>`; }
+    return `<svg viewBox="0 0 200 60" preserveAspectRatio="none">${s}</svg>`; },
+  scatter(i){ const r=rng(i+31); let s=''; for(let k=0;k<26;k++){ const x=6+r()*188, y=52-x*.22-(r()-.5)*22; s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(2+r()*2).toFixed(1)}" fill="${k%5?A:G}" opacity="${(.45+r()*.5).toFixed(2)}"/>`; }
+    return `<svg viewBox="0 0 200 60">${s}<line x1="4" y1="54" x2="196" y2="10" stroke="#fff" stroke-width="1.2" stroke-dasharray="4 3" opacity=".7"/></svg>`; },
+  shop(){ const bottle=(x,c)=>`<rect x="${x-6}" y="6" width="12" height="7" rx="2" fill="#f3e3c3" opacity=".8"/><rect x="${x-3}" y="12" width="6" height="5" fill="#f3e3c3" opacity=".5"/><rect x="${x-14}" y="17" width="28" height="32" rx="7" fill="${c}"/><rect x="${x-9}" y="22" width="5" height="20" rx="2.5" fill="#fff" opacity=".35"/>`;
+    return `<svg viewBox="0 0 200 60">${[[34,A],[100,B],[166,G]].map(([x,c])=>`<rect x="${x-30}" y="1" width="60" height="58" rx="8" fill="rgba(255,255,255,.05)" stroke="${W}"/>${bottle(x,c)}<rect x="${x-18}" y="52" width="36" height="3.5" rx="1.75" fill="rgba(255,255,255,.35)"/>`).join('')}</svg>`; },
+  sql(){ return `<pre><span class="k">SELECT</span> category,
+       <span class="k">SUM</span>(price) <span class="k">AS</span> revenue
+<span class="k">FROM</span> orders
+<span class="k">GROUP BY</span> 1 <span class="k">ORDER BY</span> 2 <span class="k">DESC</span>;</pre>`; },
+  py(){ return `<pre><span class="k">import</span> pandas <span class="k">as</span> pd
+df = pd.read_csv(<span class="s">'loans.csv'</span>)
+df.groupby(<span class="s">'grade'</span>)[<span class="s">'default'</span>]
+  .mean()  <span class="c"># default rate</span></pre>`; }
+};
 const ring = document.getElementById('ring');
 function buildRing(){
   ring.innerHTML='';
-  const w = innerWidth < 560 ? 150 : 220;
+  const w = innerWidth < 560 ? 170 : 240;
   const step = 360 / cards.length;
   const radius = Math.round((w / 2) / Math.tan(Math.PI / cards.length)) + 40;
-  cards.forEach(([t,a,b],i)=>{
+  cards.forEach(([label,title,note,type],i)=>{
     const c=document.createElement('div');c.className='card';
-    c.style.background=`linear-gradient(135deg,${a},${b})`;
     c.style.transform=`rotateY(${i*step}deg) translateZ(${radius}px)`;
-    const bars=Array.from({length:6},()=>`<u style="height:${30+Math.random()*70}%"></u>`).join('');
-    c.innerHTML=`<div class="ui"><div class="row"><i style="width:30%"></i><i style="width:14%;margin-left:auto"></i></div><div class="row"><div class="t">${t}</div><div class="bars" style="margin-left:auto">${bars}</div></div></div>`;
+    const isCode = type==='sql'||type==='py';
+    c.innerHTML=`<div class="ui"><div class="hd"><span>${label}</span><b>Live</b></div>`+
+      (isCode?'':`<div class="t">${title}${note?`<small>${note}</small>`:''}</div>`)+
+      `<div class="viz">${viz[type](i)}</div></div>`;
+    if(isCode) c.querySelector('.hd span').textContent = label+' · '+title;
     ring.appendChild(c);
   });
 }
@@ -471,6 +591,99 @@ const so=new IntersectionObserver(es=>es.forEach(e=>{
 steps.forEach(s=>so.observe(s));
 
 document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* =========================================================
+   3D / futuristic layer
+   ========================================================= */
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let mx=0, my=0;                       // mouse, -1..1
+addEventListener('pointermove',e=>{ mx=e.clientX/innerWidth*2-1; my=e.clientY/innerHeight*2-1; },{passive:true});
+
+/* --- shimmer on highlighted words --- */
+document.querySelectorAll('.hero h1 em,.big-title em,.contact h2 em').forEach(e=>e.classList.add('shine'));
+
+/* --- glowing animated borders + 3D tilt --- */
+document.querySelectorAll('.arch,.t-card,.proj .thumb,.sticky').forEach(e=>e.classList.add('holo'));
+const tiltEls=document.querySelectorAll('.proj .thumb,.t-card,.sticky');
+tiltEls.forEach(el=>{
+  el.classList.add('tilt');
+  if(reduce || matchMedia('(hover:none)').matches) return;
+  el.addEventListener('pointermove',e=>{
+    const r=el.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    el.style.transition='transform .12s ease-out';
+    el.style.transform=`perspective(900px) rotateX(${(.5-y)*10}deg) rotateY(${(x-.5)*12}deg) scale(1.02)`;
+    el.style.setProperty('--gx',x*100+'%'); el.style.setProperty('--gy',y*100+'%');
+  });
+  el.addEventListener('pointerleave',()=>{ el.style.transition=''; el.style.transform=''; });
+});
+
+/* --- cursor glow + scroll progress --- */
+const glow=document.getElementById('glow'), prog=document.getElementById('prog');
+addEventListener('pointermove',e=>{ glow.style.opacity=1; glow.style.transform=`translate(${e.clientX}px,${e.clientY}px)`; },{passive:true});
+addEventListener('scroll',()=>{ const h=document.documentElement.scrollHeight-innerHeight; prog.style.transform=`scaleX(${h>0?scrollY/h:0})`; },{passive:true});
+
+/* --- 3D data globe in the background (canvas) --- */
+(function(){
+  const cv=document.getElementById('bg'), ctx=cv.getContext('2d');
+  let W,H,D,R,cx,cy, pts=[], links=[];
+  const N = innerWidth<700 ? 220 : 380;
+  // points evenly spread on a sphere
+  for(let i=0;i<N;i++){
+    const y=1-(i/(N-1))*2, r=Math.sqrt(1-y*y), t=i*2.399963;
+    pts.push([Math.cos(t)*r, y, Math.sin(t)*r]);
+  }
+  for(let i=0;i<N;i++) for(let j=i+1;j<N;j++){
+    const a=pts[i], b=pts[j], d=(a[0]-b[0])**2+(a[1]-b[1])**2+(a[2]-b[2])**2;
+    if(d < (N<300?.055:.035)) links.push([i,j]);
+  }
+  // some "satellite" particles
+  const stars=Array.from({length:90},()=>[Math.random()*2-1,Math.random()*2-1,Math.random()]);
+  function size(){
+    D=Math.min(devicePixelRatio||1,2); W=innerWidth; H=innerHeight;
+    cv.width=W*D; cv.height=H*D; ctx.setTransform(D,0,0,D,0,0);
+    R=Math.min(W,H)*(W<700?.42:.36);
+  }
+  size(); addEventListener('resize',size);
+  let rot=0, tx=0, ty=0;
+  const proj=new Array(N);
+  function frame(){
+    const sy=scrollY;
+    rot += reduce?.0008:.0016;
+    tx += (mx*.35-tx)*.04; ty += (my*.25-ty)*.04;
+    cx = W*(W<900?.5:.72) - tx*40; cy = H*.5 - ty*30;
+    const a=rot+sy*.0009+tx, b=-.35+ty, ca=Math.cos(a), sa=Math.sin(a), cb=Math.cos(b), sb=Math.sin(b);
+    ctx.clearRect(0,0,W,H);
+    // stars
+    for(const s of stars){
+      const x=((s[0]+1)*.5*W + sy*s[2]*.15)%W, y=((s[1]+1)*.5*H - sy*s[2]*.3)%H;
+      ctx.fillStyle=`rgba(243,227,195,${.15+s[2]*.35})`; ctx.fillRect(x<0?x+W:x,y<0?y+H:y,1.4,1.4);
+    }
+    // project globe
+    for(let i=0;i<N;i++){
+      let [x,y,z]=pts[i];
+      let x1=x*ca-z*sa, z1=x*sa+z*ca;           // rotate Y
+      let y1=y*cb-z1*sb, z2=y*sb+z1*cb;          // rotate X
+      const f=2.6/(2.6+z2);
+      proj[i]=[cx+x1*R*f, cy+y1*R*f, z2];
+    }
+    ctx.lineWidth=.6;
+    for(const [i,j] of links){
+      const p=proj[i], q=proj[j], depth=(2-(p[2]+q[2]))/4;
+      ctx.strokeStyle=`rgba(255,138,107,${(depth*depth*.35).toFixed(3)})`;
+      ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.lineTo(q[0],q[1]); ctx.stroke();
+    }
+    for(let i=0;i<N;i++){
+      const p=proj[i], depth=(1-p[2])/2;
+      ctx.fillStyle = i%23===0 ? `rgba(243,227,195,${depth})` : `rgba(243,227,195,${(depth*.85).toFixed(3)})`;
+      const s=.6+depth*1.8; ctx.beginPath(); ctx.arc(p[0],p[1],s,0,6.283); ctx.fill();
+    }
+    // equator ring
+    ctx.strokeStyle='rgba(255,138,107,.18)'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.ellipse(cx,cy,R*1.25,R*1.25*Math.abs(Math.sin(b))+R*.12,0,0,6.283); ctx.stroke();
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
 </script>
 </body>
 </html>
