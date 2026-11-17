@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LIN HTET AUNG — Data Analyst</title>
+<meta name="description" content="Lin Htet Aung — Data Analyst based in London. SQL, Python and dashboards that turn data into decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Colors — navy & blue
+   ========================================================= */
+:root{
+  --bg:#04070f;
+  --bg-2:#081022;
+  --line:rgba(150,180,235,.14);
+  --text:#e9eef8;
+  --muted:#8b97ad;
+  --accent:#8fb4f5;
+  --navy-1:#0b1733;
+  --navy-2:#13254d;
+  --blue-1:#2c4f86;
+  --blue-2:#3f6aa8;
+  --blue-3:#5b8ad6;
+  --serif:"Instrument Serif", Georgia, serif;
+  --sans:"Inter", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+  --display:"Syne", "Inter", sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{width:min(1240px,100% - 32px);margin-inline:auto}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:120px 120px;mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%);opacity:.35}
+main,header,footer{position:relative;z-index:1}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 0;transition:background .3s,padding .3s}
+.nav.scrolled{background:rgba(4,7,15,.72);backdrop-filter:blur(14px);padding:14px 0;border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.04em;text-transform:uppercase}
+.logo span{color:var(--accent)}
+.status{display:flex;gap:28px;font-size:12px;color:var(--muted)}
+.status span{display:flex;align-items:center;gap:8px}
+.status b{color:var(--text);font-weight:500}
+.dot{width:7px;height:7px;border-radius:50%;background:#7dd3a8;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(125,211,168,.6)}70%{box-shadow:0 0 0 8px rgba(125,211,168,0)}100%{box-shadow:0 0 0 0 rgba(125,211,168,0)}}
+.links{display:flex;flex-direction:column;align-items:flex-end;font-size:13px;line-height:1.5}
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:0;bottom:1px;height:1px;width:0;background:var(--text);transition:width .3s}
+.links a:hover::after{width:100%}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:120px 0 64px;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:220px;background:linear-gradient(transparent,var(--bg));z-index:3;pointer-events:none}
+.ring-stage{position:absolute;top:16%;left:50%;width:100%;height:260px;transform:translateX(-50%);perspective:1400px;z-index:1;pointer-events:none}
+.ring{position:absolute;left:50%;top:50%;transform-style:preserve-3d;animation:spin 48s linear infinite}
+@keyframes spin{from{transform:rotateX(-6deg) rotateY(0)}to{transform:rotateX(-6deg) rotateY(-360deg)}}
+.ring .card{position:absolute;width:220px;height:136px;margin:-68px 0 0 -110px;border-radius:10px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);backface-visibility:hidden;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.card .ui{position:absolute;inset:0;padding:12px;display:flex;flex-direction:column;justify-content:space-between}
+.card .ui i{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.35)}
+.card .ui .t{font-family:var(--serif);font-size:22px;line-height:1;color:#fff}
+.card .ui .row{display:flex;gap:6px;align-items:flex-end}
+.card .bars{display:flex;align-items:flex-end;gap:4px;height:34px}
+.card .bars u{display:block;width:8px;border-radius:2px 2px 0 0;background:rgba(255,255,255,.45)}
+
+.portrait{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:min(560px,90vw);height:82%;z-index:2;display:flex;align-items:flex-end;justify-content:center}
+.portrait img{width:78%;height:92%;object-fit:cover;object-position:center 22%;border-radius:999px 999px 0 0;
+  border:1px solid rgba(143,180,245,.25);box-shadow:0 40px 120px -20px rgba(63,106,168,.5);
+  -webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.ph{width:78%;height:92%;border-radius:999px 999px 0 0;position:relative;overflow:hidden;
+  background:radial-gradient(circle at 50% 28%,#6d8fc9 0 17%,transparent 17.5%),
+             radial-gradient(ellipse at 50% 100%,#3f6aa8 0 46%,transparent 46.5%),
+             linear-gradient(180deg,#121a2b,#0b1220)}
+.ph span{position:absolute;bottom:18px;left:0;right:0;text-align:center}
+
+.hero-content{position:relative;z-index:4;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:32px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(56px,8vw,112px);line-height:.92;letter-spacing:-.02em;margin:14px 0 28px}
+.hero h1 em{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#0a0e17;padding:6px 20px 6px 6px;border-radius:999px;font-size:14px;font-weight:500;transition:gap .3s}
+.btn .ic{width:34px;height:34px;border-radius:50%;background:#0b1733;color:#fff;display:grid;place-items:center;transition:transform .3s}
+.btn:hover{gap:16px}.btn:hover .ic{transform:rotate(-45deg)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);padding:6px 20px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.quote{justify-self:end;max-width:310px}
+.quote p{font-family:var(--serif);font-size:20px;line-height:1.25;color:var(--muted)}
+.quote p b{color:var(--text);font-weight:400}
+.sig{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.05;letter-spacing:.05em;text-transform:uppercase;margin-top:18px;display:block;
+  background:linear-gradient(90deg,#ffffff 0%,var(--accent) 60%,#5b8ad6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .eyebrow{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.hero .eyebrow b{color:var(--text);font-weight:800}
+
+/* ---------- MARQUEE ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg-2)}
+.track{display:flex;gap:56px;width:max-content;animation:scroll 40s linear infinite}
+.track span{font-family:var(--serif);font-size:34px;white-space:nowrap;color:var(--muted);display:flex;align-items:center;gap:56px}
+.track span::after{content:"✦";font-size:16px;color:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- WHY / STATS ---------- */
+section{padding:140px 0}
+.why{position:relative;overflow:hidden}
+.why .ghost{position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-size:clamp(160px,28vw,400px);line-height:.8;
+  color:transparent;-webkit-text-stroke:1px rgba(143,180,245,.12);white-space:nowrap;pointer-events:none;user-select:none}
+.why-grid{position:relative;display:grid;grid-template-columns:1fr 360px 1fr;align-items:center;gap:40px}
+.stats{display:flex;flex-direction:column;gap:120px}
+.stat{position:relative}
+.stat .n{font-family:var(--serif);font-size:clamp(48px,5vw,68px);color:var(--accent);line-height:1}
+.stat .mono{display:block;margin-top:10px;max-width:220px;line-height:1.7;font-size:10px}
+.stats.right .stat{padding-left:40px}
+.stats.left .stat{padding-right:40px}
+.stat::after{content:"";position:absolute;top:30px;height:1px;width:110px;opacity:.5;transform:scaleX(0);transition:transform 1.2s .4s}
+.stats.left .stat::after{right:-90px;transform-origin:right;background:linear-gradient(90deg,transparent,var(--accent))}
+.stats.right .stat::after{left:-80px;width:100px;transform-origin:left;background:linear-gradient(90deg,var(--accent),transparent)}
+.stat.in::after{transform:scaleX(1)}
+.arch{height:540px;border-radius:999px 999px 0 0;background:linear-gradient(180deg,var(--blue-1),var(--blue-2));padding:140px 34px 40px;display:flex;flex-direction:column;
+  box-shadow:0 40px 120px -20px rgba(63,106,168,.45), inset 0 1px 0 rgba(255,255,255,.2)}
+.arch .mono{color:rgba(255,255,255,.7)}
+.arch h2{font-family:var(--serif);font-weight:400;font-size:42px;line-height:1.02;margin:14px 0 22px}
+.arch p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.85)}
+.arch .sig{font-size:24px;margin-top:auto;background:linear-gradient(90deg,#fff,#cfe0ff);-webkit-background-clip:text;background-clip:text}
+
+/* ---------- SECTION HEAD ---------- */
+.head{display:flex;align-items:center;gap:16px;margin-bottom:56px}
+.head::after{content:"";flex:1;height:1px;background:var(--line)}
+.head .mono::before{content:"• "}
+.big-title{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6vw,84px);line-height:1;letter-spacing:-.02em;max-width:900px;margin-bottom:64px}
+.big-title em{color:var(--accent)}
+
+/* ---------- WORK ---------- */
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.proj{grid-column:span 6;display:block}
+.proj.wide{grid-column:span 12}
+.proj .thumb{position:relative;aspect-ratio:16/10;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.proj.wide .thumb{aspect-ratio:21/9}
+.proj .art{position:absolute;inset:0;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.proj:hover .art{transform:scale(1.04)}
+.proj .view{position:absolute;right:18px;bottom:18px;background:#fff;color:#0a0e17;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:500;opacity:0;transform:translateY(10px);transition:.4s}
+.proj:hover .view{opacity:1;transform:none}
+.proj .meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 2px 0}
+.proj h3{font-family:var(--serif);font-weight:400;font-size:30px}
+.proj .desc{color:var(--muted);line-height:1.65;font-size:14px;margin-top:8px;max-width:620px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags li{list-style:none;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--muted)}
+.art .big{position:absolute;left:7%;bottom:12%;font-family:var(--serif);font-size:clamp(30px,3.4vw,56px);line-height:.92;color:#fff;opacity:.92;z-index:1}
+.proj.wide .art .big{font-size:clamp(34px,5vw,72px)}
+.art .big small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.art .win{position:absolute;right:6%;top:12%;width:46%;height:66%;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);padding:14px;display:flex;flex-direction:column;gap:10px}
+.art .win .top{display:flex;gap:6px}.art .win .top i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35)}
+.art .win svg{flex:1;width:100%}
+
+/* ---------- PROCESS ---------- */
+.process{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.sticky{position:sticky;top:110px;aspect-ratio:4/5;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.sticky .panel{position:absolute;inset:0;opacity:0;transition:opacity .7s;display:flex;align-items:center;justify-content:center;padding:32px}
+.sticky .panel.on{opacity:1}
+.sticky .panel .big{font-family:var(--serif);font-size:clamp(48px,6vw,92px);line-height:.9;text-transform:uppercase;text-align:center;color:#e6eeff}
+.steps .step{min-height:70vh;display:flex;flex-direction:column;justify-content:center;border-top:1px solid var(--line);padding:40px 0;opacity:.35;transition:opacity .5s}
+.steps .step.on{opacity:1}
+.step .num{font-family:var(--serif);font-size:88px;line-height:1;color:var(--accent)}
+.step h3{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.05;margin:18px 0;max-width:420px}
+.step p{color:var(--muted);line-height:1.7;max-width:440px}
+.step ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.step li{border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:12px;color:var(--muted)}
+
+/* ---------- TESTIMONIALS ---------- */
+.tests{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.t-card{border:1px solid var(--line);border-radius:16px;padding:32px;background:linear-gradient(180deg,rgba(143,180,245,.05),transparent);display:flex;flex-direction:column;gap:28px;transition:border-color .3s,transform .3s}
+.t-card:hover{border-color:rgba(143,180,245,.4);transform:translateY(-4px)}
+.t-card p{font-family:var(--serif);font-size:22px;line-height:1.3}
+.who{display:flex;align-items:center;gap:12px;margin-top:auto}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:600;color:#06102a}
+.who small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+/* ---------- CONTACT ---------- */
+.contact{text-align:center;padding:160px 0 80px}
+.contact h2{font-family:var(--serif);font-weight:400;font-size:clamp(52px,10vw,160px);line-height:.9;letter-spacing:-.03em;margin-top:18px}
+.contact h2 em{color:var(--accent)}
+.contact .mail{display:inline-block;margin-top:40px;font-family:var(--serif);font-size:clamp(22px,3vw,38px);border-bottom:1px solid var(--line);padding-bottom:6px;transition:border-color .3s,color .3s;word-break:break-all}
+.contact .mail:hover{color:var(--accent);border-color:var(--accent)}
+.contact .btns{justify-content:center;margin-top:32px}
+footer{border-top:1px solid var(--line);padding:28px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .soc{display:flex;gap:22px}
+footer a:hover{color:var(--text)}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .status{display:none}
+  .hero{flex-direction:column;align-items:stretch;justify-content:flex-end;padding-top:110px}
+  .ring-stage{top:110px}
+  .portrait{position:relative;left:auto;bottom:auto;transform:none;width:min(340px,78vw);height:auto;aspect-ratio:3/4;margin:40px auto 8px}
+  .portrait img,.ph{width:100%;height:100%}
+  .hero-content{grid-template-columns:1fr}
+  .quote{justify-self:start}
+  .why-grid{grid-template-columns:1fr;gap:56px}
+  .arch{order:-1;height:auto;padding:110px 28px 36px;max-width:380px;margin-inline:auto;width:100%}
+  .arch .sig{margin-top:24px}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .stats.left .stat,.stats.right .stat{padding:0}
+  .stat::after{display:none}
+  .process{grid-template-columns:1fr}
+  .sticky{position:relative;top:0;aspect-ratio:16/10}
+  .steps .step{min-height:auto}
+  .tests{grid-template-columns:1fr}
+  .proj{grid-column:span 12}
+  .proj .meta{flex-direction:column;gap:6px}
+  section{padding:96px 0}
+}
+@media (max-width:560px){
+  .ring .card{width:150px;height:94px;margin:-47px 0 0 -75px}
+  .card .bars{height:20px}
+  .hero{padding-bottom:40px}
+  .step .num{font-size:64px}
+  .art .win{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo">LIN<span>.</span></a>
+    <div class="status">
+      <span><i class="dot"></i>Available for new projects · <b>Open to all</b></span>
+      <span>◎ Based in · <b>London, England</b></span>
+    </div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="ring-stage"><div class="ring" id="ring"></div></div>
+
+  <div class="portrait">
+    <!-- Photo: portrait.png next to this file -->
+    <img src="portrait.png" alt="Lin Htet Aung" onerror="this.replaceWith(document.getElementById('ph').content.cloneNode(true))">
+  </div>
+  <template id="ph"><div class="ph"><span class="mono">add portrait.jpg</span></div></template>
+
+  <div class="wrap hero-content">
+    <div class="reveal">
+      <span class="eyebrow">Hi, I'm <b>LIN HTET AUNG</b></span>
+      <h1>Data<br><em>Analyst</em></h1>
+      <div class="btns">
+        <a href="#contact" class="btn"><span class="ic">→</span>Work with me</a>
+        <a href="#work" class="btn ghost">See projects</a>
+      </div>
+    </div>
+    <div class="quote reveal d2">
+      <p>“I turn messy, raw data into <b>clear insights and decisions</b> that businesses can actually act on.”</p>
+      <span class="sig">LIN HTET AUNG</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>SQL</span><span>Python</span><span>Pandas</span><span>Power BI</span><span>Excel</span><span>Data Cleaning</span><span>Data Visualisation</span><span>Statistics</span><span>Machine Learning</span>
+    <span>SQL</span><span>Python</span><span>Pandas</span><span>Power BI</span><span>Excel</span><span>Data Cleaning</span><span>Data Visualisation</span><span>Statistics</span><span>Machine Learning</span>
+  </div>
+</div>
+
+<!-- ================= ABOUT / STATS ================= -->
+<section class="why" id="about">
+  <div class="ghost">DATA</div>
+  <div class="wrap why-grid">
+    <div class="stats left">
+      <div class="stat reveal"><div class="n" data-count="100" data-suffix="K+">0</div><span class="mono">E-commerce orders<br>cleaned &amp; analysed</span></div>
+      <div class="stat reveal d2"><div class="n" data-count="3" data-suffix="">0</div><span class="mono">End-to-end projects<br>from raw data to insight</span></div>
+    </div>
+
+    <div class="arch reveal d1">
+      <span class="mono">• About me</span>
+      <h2>Numbers that tell a clear story</h2>
+      <p>I'm a London-based data analyst who loves finding the signal in the noise. From cleaning messy datasets to building models and dashboards, I focus on answers that are accurate, simple to understand and useful for real decisions.</p>
+      <span class="sig">LIN HTET AUNG</span>
+    </div>
+
+    <div class="stats right">
+      <div class="stat reveal d1"><div class="n" data-count="6" data-suffix="+">0</div><span class="mono">Tools in my<br>data stack</span></div>
+      <div class="stat reveal d3"><div class="n" data-count="24" data-suffix="h">0</div><span class="mono">Typical reply<br>time to new enquiries</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="head reveal"><span class="mono">Selected projects</span></div>
+    <h2 class="big-title reveal">Turning data into <em>decisions</em>, one project at a time.</h2>
+
+    <div class="work-grid">
+      <!-- Project 1 -->
+      <a class="proj reveal" href="https://github.com/LinnHtet06" target="_blank" rel="noopener">
+        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 20% 20%,#3f6aa8,transparent 60%),linear-gradient(135deg,#0b1733,#1d2f57)">
+          <div class="big"><small>Olist · Brazil</small>E-commerce<br>Analysis</div>
+          <div class="win"><div class="top"><i></i><i></i><i></i></div>
+            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><g fill="rgba(255,255,255,.55)"><rect x="8" y="60" width="18" height="40" rx="2"/><rect x="36" y="44" width="18" height="56" rx="2"/><rect x="64" y="52" width="18" height="48" rx="2"/><rect x="92" y="30" width="18" height="70" rx="2"/><rect x="120" y="38" width="18" height="62" rx="2"/><rect x="148" y="18" width="18" height="82" rx="2"/><rect x="176" y="8" width="18" height="92" rx="2" fill="#8fb4f5"/></g></svg>
+          </div></div><span class="view">View on GitHub →</span></div>
+        <div class="meta"><h3>Brazilian E-commerce Analysis</h3><span class="mono">E-commerce · Analytics</span></div>
+        <p class="desc">Explored ~100K orders from a Brazilian online marketplace to uncover sales trends, top product categories, delivery performance and what drives customer review scores.</p>
+        <ul class="tags"><li>SQL</li><li>Python</li><li>Pandas</li><li>Data Visualisation</li></ul>
+      </a>
+
+      <!-- Project 2 -->
+      <a class="proj reveal d2" href="https://github.com/LinnHtet06" target="_blank" rel="noopener">
+        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 80% 30%,#5b8ad6,transparent 55%),linear-gradient(135deg,#081022,#13254d)">
+          <div class="big"><small>Fintech</small>Credit Risk<br>Analysis</div>
+          <div class="win"><div class="top"><i></i><i></i><i></i></div>
+            <svg viewBox="0 0 200 100" preserveAspectRatio="none"><polyline fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2" stroke-dasharray="4 4" points="0,100 200,0"/><path d="M0,100 C20,40 60,12 200,4" fill="none" stroke="#8fb4f5" stroke-width="3"/><path d="M0,100 C20,40 60,12 200,4 L200,100 Z" fill="rgba(143,180,245,.15)"/></svg>
+          </div></div><span class="view">View on GitHub →</span></div>
+        <div class="meta"><h3>Fintech Credit Risk Analysis</h3><span class="mono">Fintech · Risk</span></div>
+        <p class="desc">Analysed borrower data to identify the factors behind loan defaults and built a model to score credit risk, helping lenders approve good customers and reduce bad debt.</p>
+        <ul class="tags"><li>Python</li><li>scikit-learn</li><li>Classification</li><li>EDA</li></ul>
+      </a>
+
+      <!-- Project 3 -->
+      <a class="proj wide reveal" href="https://github.com/LinnHtet06" target="_blank" rel="noopener">
+        <div class="thumb"><div class="art" style="background:radial-gradient(circle at 70% 60%,#3f6aa8,transparent 55%),linear-gradient(120deg,#060c1c,#13254d 60%,#081022)">
+          <div class="big"><small>Full-stack · CRUD</small>Perfume<br>Store</div>
+          <div class="win"><div class="top"><i></i><i></i><i></i></div>
+            <svg viewBox="0 0 300 100" preserveAspectRatio="xMidYMid meet"><g fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.25)"><rect x="5" y="5" width="85" height="90" rx="6"/><rect x="107" y="5" width="85" height="90" rx="6"/><rect x="209" y="5" width="85" height="90" rx="6"/></g><g fill="rgba(143,180,245,.85)"><rect x="38" y="22" width="20" height="10" rx="2"/><rect x="33" y="32" width="30" height="36" rx="6"/><rect x="140" y="22" width="20" height="10" rx="2"/><rect x="132" y="32" width="36" height="36" rx="10"/><rect x="242" y="18" width="20" height="12" rx="2"/><rect x="236" y="30" width="32" height="38" rx="4"/></g><g fill="rgba(255,255,255,.4)"><rect x="20" y="76" width="55" height="6" rx="3"/><rect x="122" y="76" width="55" height="6" rx="3"/><rect x="224" y="76" width="55" height="6" rx="3"/></g></svg>
+          </div></div><span class="view">View on GitHub →</span></div>
+        <div class="meta"><h3>Perfume E-commerce Website</h3><span class="mono">Web App · CRUD</span></div>
+        <p class="desc">A working online perfume shop where customers can browse and buy fragrances, with full create, read, update and delete (CRUD) management for products and orders behind the scenes.</p>
+        <ul class="tags"><li>CRUD</li><li>Database</li><li>Web Development</li><li>Shopping Cart</li></ul>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process">
+  <div class="wrap">
+    <div class="head reveal"><span class="mono">How I work</span></div>
+    <div class="process">
+      <div class="sticky" id="stickyArt">
+        <div class="panel on" style="background:radial-gradient(circle at 50% 30%,#1d2f57,#060c1c)"><div class="big">Ask<br>better<br>questions</div></div>
+        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#2c4f86,#081022)"><div class="big">Clean<br>the<br>mess</div></div>
+        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#13254d,#04070f)"><div class="big">Find<br>the<br>signal</div></div>
+        <div class="panel" style="background:radial-gradient(circle at 50% 30%,#3f6aa8,#0b1733)"><div class="big">Tell<br>the<br>story</div></div>
+      </div>
+      <div class="steps">
+        <div class="step on" data-i="0"><div class="num">01.</div><h3>Understanding the business question</h3><p>Every analysis starts with the right question. I work with you to understand your goals, define the KPIs that matter and agree on what a useful answer looks like.</p><ul><li>Requirements</li><li>KPI definition</li><li>Stakeholder chat</li></ul></div>
+        <div class="step" data-i="1"><div class="num">02.</div><h3>Collecting &amp; cleaning the data</h3><p>I pull data from databases, spreadsheets and APIs, then fix missing values, duplicates and inconsistencies so the results can be trusted.</p><ul><li>SQL queries</li><li>Data cleaning</li><li>Validation</li></ul></div>
+        <div class="step" data-i="2"><div class="num">03.</div><h3>Exploring &amp; modelling</h3><p>Exploratory analysis, statistics and, where it helps, machine learning models to uncover trends, segments and risks hidden in the data.</p><ul><li>EDA</li><li>Statistics</li><li>Predictive models</li></ul></div>
+        <div class="step" data-i="3"><div class="num">04.</div><h3>Visualising &amp; sharing insights</h3><p>Clear dashboards and short reports that explain what the data says, why it matters and what to do next, in plain language.</p><ul><li>Dashboards</li><li>Reports</li><li>Recommendations</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS =================
+     Sample quotes — replace with real feedback from mentors, classmates or clients before sharing. -->
+<section>
+  <div class="wrap">
+    <div class="head reveal"><span class="mono">Kind words</span></div>
+    <div class="tests">
+      <div class="t-card reveal"><p>“Lin has a real talent for taking a huge, messy dataset and coming back with three clear insights everyone understands.”</p><div class="who"><div class="av" style="background:#8fb4f5">PM</div><div>Project Mentor<small>Data Analytics Course</small></div></div></div>
+      <div class="t-card reveal d1"><p>“Reliable, curious and detail-oriented. The credit risk work was thorough and explained in a way non-technical people could follow.”</p><div class="who"><div class="av" style="background:#5b8ad6">TL</div><div>Team Lead<small>Group Project</small></div></div></div>
+      <div class="t-card reveal d2"><p>“Communicates clearly, meets deadlines and always double-checks the numbers. Great to work with.”</p><div class="who"><div class="av" style="background:#b9cdf5">CL</div><div>Client<small>Freelance Project</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="mono reveal">Have data that needs answers?</span>
+    <h2 class="reveal d1">Let's turn your data<br>into <em>decisions</em>.</h2>
+    <a class="mail reveal d2" href="mailto:linhtetaung302@gmail.com">linhtetaung302@gmail.com</a>
+    <div class="btns reveal d3">
+      <a href="mailto:linhtetaung302@gmail.com" class="btn"><span class="ic">→</span>Send an email</a>
+      <a href="https://github.com/LinnHtet06" target="_blank" rel="noopener" class="btn ghost">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>© <span id="yr"></span> Lin Htet Aung · London</span>
+    <div class="soc"><a href="https://github.com/LinnHtet06" target="_blank" rel="noopener">GitHub</a><a href="mailto:linhtetaung302@gmail.com">Email</a></div>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+/* ---------- 3D ring cards ---------- */
+const cards = [
+  ["E-commerce","#0b1733","#2c4f86"],["Credit Risk","#13254d","#5b8ad6"],["Perfume Store","#081022","#3f6aa8"],
+  ["SQL","#1d2f57","#4a78c0"],["Python","#0b1733","#3f6aa8"],["Power BI","#13254d","#6f9ccf"],
+  ["Dashboards","#081022","#2c4f86"],["Forecasts","#1d2f57","#5b8ad6"],["KPIs","#0b1733","#4a78c0"],
+  ["Cohorts","#13254d","#3f6aa8"],["Insights","#081022","#6f9ccf"],["Pandas","#1d2f57","#2c4f86"]
+];
+const ring = document.getElementById('ring');
+function buildRing(){
+  ring.innerHTML='';
+  const w = innerWidth < 560 ? 150 : 220;
+  const step = 360 / cards.length;
+  const radius = Math.round((w / 2) / Math.tan(Math.PI / cards.length)) + 40;
+  cards.forEach(([t,a,b],i)=>{
+    const c=document.createElement('div');c.className='card';
+    c.style.background=`linear-gradient(135deg,${a},${b})`;
+    c.style.transform=`rotateY(${i*step}deg) translateZ(${radius}px)`;
+    const bars=Array.from({length:6},()=>`<u style="height:${30+Math.random()*70}%"></u>`).join('');
+    c.innerHTML=`<div class="ui"><div class="row"><i style="width:30%"></i><i style="width:14%;margin-left:auto"></i></div><div class="row"><div class="t">${t}</div><div class="bars" style="margin-left:auto">${bars}</div></div></div>`;
+    ring.appendChild(c);
+  });
+}
+buildRing(); addEventListener('resize', ()=>{clearTimeout(window._rt);window._rt=setTimeout(buildRing,200)});
+
+/* ---------- nav on scroll ---------- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ---------- reveal + counters ---------- */
+function countUp(el){
+  const end=+el.dataset.count, pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+  const dur=1800, t0=performance.now();
+  (function tick(t){
+    const p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+    el.textContent=pre+Math.round(end*e)+suf;
+    if(p<1) requestAnimationFrame(tick);
+  })(t0);
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  io.unobserve(e.target);
+}),{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- process: swap sticky panel as steps scroll ---------- */
+const panels=document.querySelectorAll('#stickyArt .panel');
+const steps=document.querySelectorAll('.step');
+const so=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting) return;
+  const i=+e.target.dataset.i;
+  steps.forEach(s=>s.classList.toggle('on',s===e.target));
+  panels.forEach((p,j)=>p.classList.toggle('on',j===i));
+}),{rootMargin:'-45% 0px -45% 0px'});
+steps.forEach(s=>so.observe(s));
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
