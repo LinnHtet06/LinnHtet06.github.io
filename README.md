@@ -9,13 +9,13 @@ I turn numbers into narratives, data into decisions, and insights into business 
 
 | Project | What it does | Tools |
 |---|---|---|
-| **Brazilian E-commerce Analysis** | Sales trends, top categories, delivery performance and review drivers across ~100K orders | SQL, Python, Pandas |
-| **Fintech Credit Risk Analysis** | Finds the factors behind loan defaults and scores borrower credit risk | Python, scikit-learn |
-| **Perfume E-commerce Website** | Online perfume shop with full CRUD for products and orders | Web development, database |
+| **[Brazilian E-commerce Sales Analysis](https://github.com/LinnHtet06/E-commerce-Sales-analyst)** | Sales trends, customer purchasing patterns and delivery performance, with a decision-tree model for business insights | Tableau, Weka (J48) |
+| **[Fintech Credit Risk Analysis](https://github.com/LinnHtet06/credit-risk-analysis)** | Exploratory analysis of 32,000 peer-to-peer loans to find the factors linked to defaults | Excel, Tableau |
+| **[Perfume E-commerce Website](https://github.com/LinnHtet06/E-commerce)** | Full-stack online perfume shop with CRUD for products and orders | PHP, JavaScript, CSS |
 
 ## Skills
 
-SQL · Python · Pandas · Power BI · Excel · Data Cleaning · Data Visualisation · Statistics · Machine Learning
+SQL · Python · Pandas · Excel · Tableau · Power BI · Weka · Data Cleaning · Data Visualisation · Statistics · Machine Learning
 
 ## About this site
 
